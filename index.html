@@ -23,20 +23,33 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
+      flex-direction: row;
       background-color: #f9f5ff;
+      padding: 2rem;
+      gap: 2rem;
     }
 
     .hero img {
-      width: 200px;
+      width: 250px;
       height: auto;
       border-radius: 50%;
+    }
+
+    .hero .intro-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 400px;
+    }
+
+    .hero .intro-text h1 {
+      font-size: 3rem;
+      color: #4b0082;
       margin-bottom: 1rem;
     }
 
-    .hero h1 {
-      font-size: 2rem;
-      color: #4b0082;
+    .hero .intro-text p {
+      font-size: 1.2rem;
     }
 
     .content {
@@ -46,23 +59,7 @@
       padding: 2rem;
     }
 
-    header {
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .experience-container {
+    .experience-container, .education-container {
       display: flex;
       flex-direction: column;
       gap: 2rem;
@@ -70,20 +67,51 @@
       max-width: 800px;
     }
 
-    .experience {
+    .experience, .education {
       background-color: #f0e6ff;
-      border-left: 5px solid #4b0082;
-      padding: 1.5rem;
+      position: relative;
+      padding: 1.5rem 1.5rem 1.5rem 6.5rem;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: background-color 0.4s ease;
     }
 
-    .experience h2 {
-      margin-bottom: 0.5rem;
+    .experience::before, .education::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 5px;
+      background-color: #4b0082;
+      transition: width 0.4s ease;
+      z-index: 0;
     }
 
-    .experience p {
-      font-size: 1rem;
+    .experience:hover::before, .education:hover::before {
+      width: 10px;
+    }
+
+    .experience:hover, .education:hover {
+      background-color: #d9b3ff;
+    }
+
+    .experience h2, .education h2,
+    .experience p, .education p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .experience .logo-placeholder, .education .logo-placeholder {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      width: 90px;
+      height: 90px;
+      background-color: #ccc;
+      border-radius: 5px;
+      z-index: 1;
     }
 
     footer {
@@ -96,32 +124,60 @@
 <body>
   <div class="hero">
     <!-- Replace this placeholder with your minimalist drawing -->
-    <img src="logo.png" alt="logo">
-    <h1>Welcome</h1>
+    <img src="your-drawing.png" alt="Minimalist drawing of me">
+    <div class="intro-text">
+      <h1>Your Name</h1>
+      <p>Finance Professional with a passion for numbers, strategy, and growth. Explore my experience below.</p>
+    </div>
   </div>
 
   <div class="content">
-    <header>
-      <h1>Your Name</h1>
-      <p>Finance Professional with a passion for numbers, strategy, and growth. Explore my experience below.</p>
-    </header>
-
     <div class="experience-container">
       <div class="experience">
+        <div class="logo-placeholder"></div>
         <h2>Experience 1: Financial Analyst at Company A</h2>
-        <p>Analyzed financial data, created reports, and supported decision-making for strategic investments.</p>
+        <p>Analyzed financial data, created reports.</p>
+        <p>Supported decision-making for investments.</p>
+        <p>Led monthly forecast meetings.</p>
       </div>
       <div class="experience">
+        <div class="logo-placeholder"></div>
         <h2>Experience 2: Investment Associate at Company B</h2>
-        <p>Worked on portfolio management, risk assessment, and presented financial strategies to clients.</p>
+        <p>Managed investment portfolios and risk.</p>
+        <p>Presented strategies to stakeholders.</p>
+        <p>Improved client engagement by 20%.</p>
       </div>
       <div class="experience">
+        <div class="logo-placeholder"></div>
         <h2>Experience 3: Junior Accountant at Company C</h2>
-        <p>Managed ledgers, performed reconciliations, and supported month-end close processes.</p>
+        <p>Handled ledgers and account reconciliations.</p>
+        <p>Assisted in monthly closings.</p>
+        <p>Ensured accurate financial reporting.</p>
       </div>
       <div class="experience">
+        <div class="logo-placeholder"></div>
         <h2>Experience 4: Finance Intern at Company D</h2>
-        <p>Assisted with budgeting, financial forecasting, and gained valuable industry exposure.</p>
+        <p>Supported budget and forecast analysis.</p>
+        <p>Worked on real-time financial models.</p>
+        <p>Participated in audit preparation.</p>
+      </div>
+
+    <div style="height: 4rem;"></div>
+
+    <div class="education-container">
+      <div class="education">
+        <div class="logo-placeholder"></div>
+        <h2>Education 1: MSc in Finance - University X</h2>
+        <p>Graduated with distinction.</p>
+        <p>Studied corporate finance and analysis.</p>
+        <p>Completed thesis on fintech markets.</p>
+      </div>
+      <div class="education">
+        <div class="logo-placeholder"></div>
+        <h2>Education 2: BSc in Economics - University Y</h2>
+        <p>Covered economics, statistics, and admin.</p>
+        <p>Led student investment group.</p>
+        <p>Interned at a local bank.</p>
       </div>
     </div>
 
